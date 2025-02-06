@@ -1,0 +1,192 @@
+/* Basic reset and font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+#game-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Instructions styling */
+#instructions {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #333;
+}
+
+#instructions h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+#instructions p {
+  font-size: 18px;
+}
+
+/* Categories container: centered below instructions */
+#categories-container {
+  position: absolute;
+  top: calc(5% + 80px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1;
+}
+
+.category {
+  width: 140px;
+  height: 50px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 500;
+  color: #333;
+  user-select: none;
+  transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Draggable file card styling (shadows removed) */
+#file-stack {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 12px;
+  /* Removed shadow as requested */
+  transition: background 0.3s, border 0.3s, left 0.3s, top 0.3s, transform 0.3s;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* File layers: dark text for readability; no extra shadow */
+.file-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+/* Slight offsets for a stacked effect */
+.file-layer {
+  top: 0;
+  left: 0;
+}
+
+
+/* Score container styling: positioned below the file card */
+#score-container {
+  position: absolute;
+  top: calc(50% + 80px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#score {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.score-box {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: #f0f0f0;
+}
+
+/* Score text colors */
+#correct-count {
+  color: #28a745;
+  font-weight: 700;
+}
+#incorrect-count {
+  color: #dc3545;
+  font-weight: 700;
+}
+
+/* Correct drop animation styling */
+.correct-animate {
+  animation: correctPop 0.8s forwards;
+  background: #d4edda !important;
+  border-color: #28a745 !important;
+  color: #28a745 !important;
+}
+
+.correct-animate .file-layer {
+  color: #28a745 !important;
+}
+
+@keyframes correctPop {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--move-x), var(--move-y)) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Incorrect drop: flash red and shake, remaining red during the shake */
+.error {
+  background: #f8d7da !important;
+  border-color: #dc3545 !important;
+  color: #dc3545 !important;
+}
+
+.error .file-layer {
+  color: #dc3545 !important;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-10px, 0); }
+  50% { transform: translate(10px, 0); }
+  75% { transform: translate(-10px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
