@@ -1,11 +1,22 @@
 // Define file types with corresponding extensions.
 const fileTypes = {
-  "Document Files": [".doc", ".docx", ".pdf", ".txt", ".rtf"],
-  "Image Files": [".jpg", ".jpeg", ".png", ".gif", ".svg"],
-  "Audio Files": [".mp3", ".wav", ".flac", ".aac"],
-  "Video Files": [".mp4", ".avi", ".mov", ".mkv"],
-  "Source Code Files": [".js", ".py", ".html", ".css", ".java"]
+  "Document Files": [
+    ".doc", ".docx", ".pdf", ".txt", ".rtf", ".xls", ".xlsx", ".ppt", ".pptx", ".csv"
+  ],
+  "Image Files": [
+    ".jpg", ".jpeg", ".png", ".gif", ".svg", ".bmp", ".tiff", ".webp", ".ico", ".eps"
+  ],
+  "Audio Files": [
+    ".mp3", ".wav", ".flac"
+  ],
+  "Video Files": [
+    ".mp4", ".avi", ".mov", ".mkv", ".webm"
+  ],
+  "Source Code Files": [
+    ".js", ".py", ".html", ".css", ".java", ".c", ".cpp", ".php", ".json", ".xml"
+  ]
 };
+
 
 const fileStack = document.getElementById('file-stack');
 const categories = document.querySelectorAll('.category');
