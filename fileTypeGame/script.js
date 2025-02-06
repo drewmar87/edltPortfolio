@@ -1,23 +1,37 @@
 // Define file types with corresponding extensions.
 const fileTypes = {
   "Document Files": [
-    ".doc", ".docx", ".pdf", ".txt", ".rtf", ".xls", ".xlsx", ".ppt", ".pptx", ".csv"
+    ".doc", ".docx", ".pdf", ".txt", ".rtf", ".odt", ".xls", ".xlsx", ".ppt", ".pptx", ".csv"
   ],
   "Image Files": [
-    ".jpg", ".jpeg", ".png", ".gif", ".svg", ".bmp", ".tiff", ".webp", ".ico", ".eps"
+    ".jpg", ".jpeg", ".png", ".gif", ".svg", ".bmp", ".tiff", ".webp"
   ],
   "Audio Files": [
-    ".mp3", ".wav", ".flac"
+    ".mp3", ".wav", ".flac", ".aac"
   ],
   "Video Files": [
-    ".mp4", ".avi", ".mov", ".mkv", ".webm"
+    ".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".webm", ".mpeg"
   ],
   "Source Code Files": [
-    ".js", ".py", ".html", ".css", ".java", ".c", ".cpp", ".php", ".json", ".xml"
+    ".js", ".py", ".html", ".css", ".java", ".c", ".cpp", ".cs", 
+    ".php", ".rb", ".swift", ".ts", ".go", ".rs", ".sql", 
+    ".xml", ".json", ".yml", ".yaml"
+  ],
+  "Compressed Files": [
+    ".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".iso"
+  ],
+  "Executable Files": [
+    ".exe", ".msi", ".bat", ".sh", ".apk", ".app"
+  ],
+  "Font Files": [
+    ".ttf", ".otf", ".woff", ".woff2"
+  ],
+  "3D Model Files": [
+    ".obj", ".stl", ".fbx", ".dae", ".glb", ".gltf"
   ]
 };
 
-
+// Grab necessary elements.
 const fileStack = document.getElementById('file-stack');
 const categories = document.querySelectorAll('.category');
 const correctCountEl = document.getElementById('correct-count');
@@ -29,7 +43,24 @@ let incorrectCount = 0;
 let dragging = false;
 let offsetX, offsetY;
 
-// Start a new round by centering the card and choosing a new file type.
+/**
+ * Center the file stack within its container (#file-stack-container).
+ * Since the container and file stack are the same size (120px by 120px),
+ * this will typically set left and top to 0. However, this function is useful
+ * if you later adjust sizes.
+ */
+function centerElement() {
+  const container = document.getElementById('file-stack-container');
+  const centerX = (container.clientWidth - fileStack.offsetWidth) / 2;
+  const centerY = (container.clientHeight - fileStack.offsetHeight) / 2;
+  fileStack.style.left = centerX + 'px';
+  fileStack.style.top = centerY + 'px';
+  fileStack.style.transform = 'none';
+}
+
+/**
+ * Start a new round: center the file stack and randomly select a new file extension.
+ */
 function newRound() {
   // Immediately recenter the card.
   centerElement();
@@ -50,19 +81,9 @@ function newRound() {
   fileStack.style.transform = 'none';
 }
 
-// Center the draggable card in the game container.
-function centerElement() {
-  const container = document.getElementById('game-container');
-  const containerRect = container.getBoundingClientRect();
-  const fsRect = fileStack.getBoundingClientRect();
-  const centerX = containerRect.width / 2 - fsRect.width / 2;
-  const centerY = containerRect.height / 2 - fsRect.height / 2;
-  fileStack.style.left = centerX + 'px';
-  fileStack.style.top = centerY + 'px';
-  fileStack.style.transform = 'none';
-}
-
-// Update the score display.
+/**
+ * Update the score display.
+ */
 function updateScore(isCorrect) {
   if (isCorrect) {
     correctCount++;
@@ -78,20 +99,29 @@ function updateScore(isCorrect) {
 
 // ----- Custom Drag-and-Drop Implementation -----
 
+// When the user starts dragging...
 fileStack.addEventListener('mousedown', function(e) {
   dragging = true;
   const rect = fileStack.getBoundingClientRect();
+  // Calculate offset from the mouse to the top-left of fileStack.
   offsetX = e.clientX - rect.left;
   offsetY = e.clientY - rect.top;
   fileStack.style.transition = 'none';
 });
 
+// While dragging, update the file stack's position relative to its container.
 document.addEventListener('mousemove', function(e) {
   if (!dragging) return;
-  fileStack.style.left = (e.clientX - offsetX) + 'px';
-  fileStack.style.top = (e.clientY - offsetY) + 'px';
+  const container = document.getElementById('file-stack-container');
+  const containerRect = container.getBoundingClientRect();
+  // Calculate new position relative to the container's top-left.
+  const newLeft = e.clientX - offsetX - containerRect.left;
+  const newTop = e.clientY - offsetY - containerRect.top;
+  fileStack.style.left = newLeft + 'px';
+  fileStack.style.top = newTop + 'px';
 });
 
+// When the user releases the mouse button...
 document.addEventListener('mouseup', function(e) {
   if (!dragging) return;
   dragging = false;
@@ -126,15 +156,14 @@ document.addEventListener('mouseup', function(e) {
       fileStack.style.setProperty('--move-y', moveY + 'px');
       fileStack.classList.add('correct-animate');
       fileStack.addEventListener('animationend', function handler() {
-  fileStack.classList.remove('correct-animate');
-  fileStack.removeEventListener('animationend', handler);
-  // Disable transition so the new card immediately starts in the center.
-  fileStack.style.transition = 'none';
-  newRound();
-});
-
+        fileStack.classList.remove('correct-animate');
+        fileStack.removeEventListener('animationend', handler);
+        // Temporarily disable transitions to reset the position instantly.
+        fileStack.style.transition = 'none';
+        newRound();
+      });
     } else {
-      // Incorrect drop: add error and shake classes and keep red during shake.
+      // Incorrect drop: animate error and shake, then recenter.
       updateScore(false);
       fileStack.classList.add('error');
       fileStack.classList.add('shake');
@@ -145,7 +174,7 @@ document.addEventListener('mouseup', function(e) {
       }, 300);
     }
   } else {
-    // Not dropped on any category: return to center.
+    // If not dropped on any category, return to the center.
     centerElement();
   }
 });
