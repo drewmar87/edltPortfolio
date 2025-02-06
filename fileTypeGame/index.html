@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Type Identification Game</title>
+  <!-- Using a modern sans-serif font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Title and directions -->
+    <div id="instructions">
+      <h1>File Type Identifier</h1>
+      <p>Drag the file icon to the matching category.</p>
+    </div>
+    
+    <!-- Categories row (drop targets) -->
+    <div id="categories-container">
+      <div class="category" data-category="Document Files">Document Files</div>
+      <div class="category" data-category="Image Files">Image Files</div>
+      <div class="category" data-category="Audio Files">Audio Files</div>
+      <div class="category" data-category="Video Files">Video Files</div>
+      <div class="category" data-category="Source Code Files">Source Code Files</div>
+    </div>
+    
+    <!-- Central draggable file card -->
+    <div id="file-stack">
+      <!-- Three overlapping layers for a stacked look -->
+      <div class="file-layer" id="file-layer-1"></div>
+      <div class="file-layer" id="file-layer-2"></div>
+      <div class="file-layer" id="file-layer-3"></div>
+    </div>
+    
+    <!-- Score display area -->
+    <div id="score-container">
+      <div id="score">
+        <span class="score-box">Correct: <span id="correct-count">0</span></span>
+        <span class="score-box">Incorrect: <span id="incorrect-count">0</span></span>
+        <span class="score-box">Accuracy: <span id="accuracy">0%</span></span>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
