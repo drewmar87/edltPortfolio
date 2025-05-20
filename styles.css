@@ -622,6 +622,25 @@ button[type="submit"]:hover {
     color: var(--secondary-text-color);
     margin-top: 0.5em;
 }
+
+/* Teaching Portfolio Table */
+.teaching-portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.teaching-portfolio-table th,
+.teaching-portfolio-table td {
+    padding: 0.75em;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.teaching-portfolio-table th {
+    background-color: #f0f4f8;
+    font-weight: 600;
+}
 /* Leadership & Service List */
 .leadership-list {
     list-style: none;
