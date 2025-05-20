@@ -99,30 +99,36 @@ function updateScore(isCorrect) {
 
 // ----- Custom Drag-and-Drop Implementation -----
 
-// When the user starts dragging...
-fileStack.addEventListener('mousedown', function(e) {
+/**
+ * Start dragging from the given coordinates.
+ */
+function startDrag(clientX, clientY) {
   dragging = true;
   const rect = fileStack.getBoundingClientRect();
-  // Calculate offset from the mouse to the top-left of fileStack.
-  offsetX = e.clientX - rect.left;
-  offsetY = e.clientY - rect.top;
+  // Calculate offset from the pointer to the top-left of fileStack.
+  offsetX = clientX - rect.left;
+  offsetY = clientY - rect.top;
   fileStack.style.transition = 'none';
-});
+}
 
-// While dragging, update the file stack's position relative to its container.
-document.addEventListener('mousemove', function(e) {
+/**
+ * Move the file stack to the given coordinates.
+ */
+function moveDrag(clientX, clientY) {
   if (!dragging) return;
   const container = document.getElementById('file-stack-container');
   const containerRect = container.getBoundingClientRect();
   // Calculate new position relative to the container's top-left.
-  const newLeft = e.clientX - offsetX - containerRect.left;
-  const newTop = e.clientY - offsetY - containerRect.top;
+  const newLeft = clientX - offsetX - containerRect.left;
+  const newTop = clientY - offsetY - containerRect.top;
   fileStack.style.left = newLeft + 'px';
   fileStack.style.top = newTop + 'px';
-});
+}
 
-// When the user releases the mouse button...
-document.addEventListener('mouseup', function(e) {
+/**
+ * Finish dragging and check if dropped on a category.
+ */
+function endDrag() {
   if (!dragging) return;
   dragging = false;
   fileStack.style.transition = 'left 0.3s, top 0.3s';
@@ -177,6 +183,41 @@ document.addEventListener('mouseup', function(e) {
     // If not dropped on any category, return to the center.
     centerElement();
   }
+}
+
+// Mouse events
+fileStack.addEventListener('mousedown', function(e) {
+  startDrag(e.clientX, e.clientY);
+});
+
+document.addEventListener('mousemove', function(e) {
+  moveDrag(e.clientX, e.clientY);
+});
+
+document.addEventListener('mouseup', function() {
+  endDrag();
+});
+
+// Touch events
+fileStack.addEventListener('touchstart', function(e) {
+  if (e.touches.length > 0) {
+    const touch = e.touches[0];
+    startDrag(touch.clientX, touch.clientY);
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('touchmove', function(e) {
+  if (!dragging || e.touches.length === 0) return;
+  const touch = e.touches[0];
+  moveDrag(touch.clientX, touch.clientY);
+  e.preventDefault();
+});
+
+document.addEventListener('touchend', function(e) {
+  if (!dragging) return;
+  endDrag();
+  e.preventDefault();
 });
 
 window.addEventListener('resize', centerElement);
