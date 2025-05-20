@@ -782,7 +782,8 @@ button[type="submit"]:hover {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .about-me-section {
-        flex-direction: column-reverse;
+        /* Ensure the profile picture stays above the text on small screens */
+        flex-direction: column;
         text-align: center;
     }
 
