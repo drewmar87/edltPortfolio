@@ -224,6 +224,7 @@ section:nth-child(even) {
 }
 
 .portfolio-card {
+    display: block;
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -241,8 +242,17 @@ section:nth-child(even) {
 
 .portfolio-image {
     position: relative;
-	background: rgba(96, 125, 139, 0.3);
-		
+    background: rgba(96, 125, 139, 0.3);
+}
+
+.gif-placeholder {
+    height: 150px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #607d8b;
+    font-size: 0.9em;
 }
 
 .portfolio-image::after {
