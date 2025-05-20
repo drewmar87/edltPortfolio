@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap');
 
 /* Reset and Base Styles */
+:root {
+    --primary-color: #2e3d49;
+    --secondary-text-color: #7f8c8d;
+}
 * {
     margin: 0;
     padding: 0;
