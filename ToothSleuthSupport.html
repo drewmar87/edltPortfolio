@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooth Sleuth - Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #7f8c8d;
+            font-size: 1.2em;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .faq-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "🦷";
+            position: absolute;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="app-icon">🦷</div>
+            <h1>Tooth Sleuth</h1>
+            <p class="tagline">Master Dental Identification</p>
+        </header>
+
+        <div class="section">
+            <h2>Contact Support</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:andrewmargarit@icloud.com?subject=Tooth%20Sleuth%20Support">andrewmargarit@icloud.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">💬</div>
+                    <div>
+                        <strong>Response Time:</strong><br>
+                        Within 24-48 hours
+                    </div>
+                </div>
+            </div>
+            <p>Have a question, found a bug, or have a feature request? We'd love to hear from you! Send us an email and we'll get back to you as soon as possible.</p>
+        </div>
+
+        <div class="section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How do I unlock premium features?</h3>
+                <p>Tap the "Practice Mode" button on the main menu, then select "UPGRADE" to unlock Palmer Notation, FDI System, and Tooth Names practice modes. Premium features are a one-time purchase with no subscriptions.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What's the difference between game modes?</h3>
+                <p><strong>Timed Mode:</strong> 90 seconds to identify as many teeth as possible. Perfect for quick practice sessions.</p>
+                <p><strong>Survival Mode:</strong> Keep playing until time runs out. Each correct answer adds time, wrong answers subtract time.</p>
+                <p><strong>Practice Mode:</strong> Learn at your own pace with no time pressure. Choose specific notation systems to study.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I play offline?</h3>
+                <p>Yes! Tooth Sleuth works completely offline once downloaded. Your scores and progress are saved locally on your device.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I view leaderboards?</h3>
+                <p>Make sure you're signed into Game Center in your device settings. Then tap "Leaderboard" from the main menu to see global rankings.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>About Tooth Sleuth</h2>
+            <p>Tooth Sleuth is an educational game designed to help dental and hygiene students master tooth identification. Created by a dental educator with real classroom experience, it turns learning into an engaging, competitive experience.</p>
+            
+            <h3 style="margin-top: 20px;">Features:</h3>
+            <ul class="feature-list">
+                <li>Universal Numbering System (1-32)</li>
+                <li>Adult and Primary Dentition</li>
+                <li>Multiple Game Modes</li>
+                <li>Global Leaderboards</li>
+                <li>Premium Practice Modes (Palmer, FDI, Tooth Names)</li>
+                <li>Clean, Professional Interface</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Feedback & Feature Requests</h2>
+            <p>We're constantly working to improve Tooth Sleuth! If you have ideas for new features or improvements, please don't hesitate to reach out. Your feedback helps make the app better for all students.</p>
+            <br>
+            <a href="mailto:andrewmargarit@icloud.com?subject=Tooth%20Sleuth%20Feature%20Request" class="btn">Send Feedback</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Andrew Margarit. All rights reserved.</p>
+            <p>Tooth Sleuth is designed for educational purposes.</p>
+        </footer>
+    </div>
+</body>
+</html>
