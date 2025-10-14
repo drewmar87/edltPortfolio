@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Radiology Flashcards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        
+        .progress {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px 30px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .card-label {
+            color: #764ba2;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .card-content {
+            font-size: 22px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .answer {
+            display: none;
+        }
+        
+        .answer.show {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .controls-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .show-hide-btn {
+            grid-column: span 2;
+            background: #48bb78;
+        }
+        
+        .show-hide-btn:hover {
+            background: #38a169;
+        }
+        
+        .show-hide-btn.hide {
+            background: #f56565;
+        }
+        
+        .show-hide-btn.hide:hover {
+            background: #e53e3e;
+        }
+        
+        .shuffle-btn {
+            grid-column: span 2;
+            background: #9f7aea;
+        }
+        
+        .shuffle-btn:hover {
+            background: #805ad5;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+                min-height: 250px;
+            }
+            
+            .card-content {
+                font-size: 18px;
+            }
+            
+            button {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="progress" id="progress">Card 1 of 50</div>
+        
+        <div class="card">
+            <div class="question">
+                <div class="card-label">Question</div>
+                <div class="card-content" id="question"></div>
+            </div>
+            <div class="answer" id="answer">
+                <div class="card-label">Answer</div>
+                <div class="card-content" id="answer-text"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="show-hide-btn" id="toggleAnswer" onclick="toggleAnswer()">Show Answer</button>
+        </div>
+        
+        <div class="controls-bottom">
+            <button id="prevBtn" onclick="previousCard()">← Previous</button>
+            <button id="nextBtn" onclick="nextCard()">Next →</button>
+            <button class="shuffle-btn" onclick="shuffleCards()">🔀 Shuffle</button>
+        </div>
+    </div>
+    
+    <script>
+        const flashcards = [
+            {
+                front: "Which event illustrates ionization during dental x-ray exposure?",
+                back: "An atom loses an electron, resulting in a positively charged ion. Ionization removes an electron from a neutral atom, creating an ion."
+            },
+            {
+                front: "What change creates an isotope of an element?",
+                back: "An atom gains an extra neutron, becoming an isotope. Isotopes differ in neutron number without changing their charge."
+            },
+            {
+                front: "What process describes a nucleus splitting into smaller parts and releasing energy?",
+                back: "An atom's nucleus splits into smaller parts, releasing energy. This is nuclear fission and is not a process in diagnostic dental radiography."
+            },
+            {
+                front: "What is excitation (as opposed to ionization) in atomic interactions?",
+                back: "An atom absorbs energy but remains electrically neutral. Excitation raises an electron's energy level without removing it."
+            },
+            {
+                front: "What is direct radiation injury?",
+                back: "It happens when x-ray photons directly break DNA and key cell parts. Direct hits to critical targets cause immediate molecular damage."
+            },
+            {
+                front: "What is indirect radiation injury?",
+                back: "It happens when free radicals damage cell components. Water radiolysis produces reactive species that then injure biomolecules."
+            },
+            {
+                front: "What describes thermal injury from radiation?",
+                back: "It happens when radiation heats up cells. Excess energy deposition can raise tissue temperature and cause damage."
+            },
+            {
+                front: "What is transmission in radiography?",
+                back: "It happens when radiation passes through without effect. Photons traverse tissue without interaction or absorption."
+            },
+            {
+                front: "How do radiation-generated free radicals harm tissues?",
+                back: "By combining with other molecules to form toxins that damage cells. Radical reactions (e.g., hydrogen peroxide formation) disrupt cellular functions."
+            },
+            {
+                front: "What characterizes direct radiation injury to DNA?",
+                back: "By directly breaking DNA strands upon initial contact. Energy is deposited in the target molecule itself."
+            },
+            {
+                front: "What outcome would not be expected of free radicals?",
+                back: "By forming stable molecules that repair damaged cells. Free radicals are highly reactive and typically cause, not repair, damage."
+            },
+            {
+                front: "What is meant by photon transmission through tissue?",
+                back: "By passing harmlessly through cells without interaction. No absorption means no biological effect."
+            },
+            {
+                front: "Which tissue type is relatively radioresistant?",
+                back: "Mature bone cells. Low mitotic activity and high differentiation reduce radiosensitivity."
+            },
+            {
+                front: "Which cells are among the most radiosensitive in the body?",
+                back: "Immature reproductive cells. High mitotic rate and low differentiation increase sensitivity."
+            },
+            {
+                front: "Compared with mature bone, which cells are more radiosensitive?",
+                back: "Young bone cells. Greater proliferative activity increases radiosensitivity."
+            },
+            {
+                front: "Which option is not a cell and thus not a typical target for DNA damage?",
+                back: "Hemoglobin cells. Hemoglobin is a protein, not a cell, and lacks DNA."
+            },
+            {
+                front: "Which device specifically protects the thyroid during dental x-rays?",
+                back: "Thyroid collar. It shields the radiosensitive thyroid from scatter radiation."
+            },
+            {
+                front: "Which garment protects the torso and gonads from scatter during dental x-rays?",
+                back: "Lead apron. It reduces dose to radiosensitive organs in the trunk."
+            },
+            {
+                front: "Which device reduces beam size and patient dose by shaping the beam?",
+                back: "Rectangular collimator. Limiting field size lowers exposure and scatter."
+            },
+            {
+                front: "Which receptor type can reduce patient dose due to higher sensitivity?",
+                back: "Digital sensor. Many digital systems require lower exposure than film for diagnostic quality."
+            },
+            {
+                front: "What is the primary role of the aluminum filter in the tubehead?",
+                back: "It removes low-energy x-rays that are harmful and non-diagnostic. Filtration hardens the beam to reduce skin dose and improve quality."
+            },
+            {
+                front: "What is the primary function of the collimator?",
+                back: "It reduces the size of the x-ray beam. By limiting field size, collimation decreases patient dose and scatter."
+            },
+            {
+                front: "What is a key purpose of the PID and collimator in beam direction?",
+                back: "It focuses the x-ray beam on the area of interest. Shaping and directing the beam improves coverage of the target region."
+            },
+            {
+                front: "What does the insulating oil surrounding the x-ray tube primarily do?",
+                back: "It cools the x-ray tubehead during operation. Oil dissipates heat generated by exposures."
+            },
+            {
+                front: "Which PID design best reduces patient exposure?",
+                back: "Rectangular PID. It limits field size most effectively, reducing dose and scatter."
+            },
+            {
+                front: "Which outdated PID design increases scatter and is no longer recommended?",
+                back: "Conical PID. Its shape increases scatter exposure and is largely discontinued."
+            },
+            {
+                front: "Compared with rectangular, which common PID allows a larger field size and higher exposure?",
+                back: "Circular PID. A larger beam area increases patient dose."
+            },
+            {
+                front: "When PIDs share the same shape and length, how do they compare in dose reduction?",
+                back: "All PIDs are equally effective. Effectiveness depends on shape and length, not naming."
+            },
+            {
+                front: "If only kVp is increased, what happens to the image?",
+                back: "Increased Density. Higher kVp increases beam energy and overall image darkening while reducing contrast."
+            },
+            {
+                front: "What results from increasing object–receptor distance or decreasing source–object distance?",
+                back: "Magnification. Geometric factors enlarge structures on the image."
+            },
+            {
+                front: "If kVp is decreased (all else constant), what happens to image density?",
+                back: "Decreased Density. Lower beam energy produces a lighter image."
+            },
+            {
+                front: "What results from using a small focal spot and stable positioning?",
+                back: "Increased Sharpness. Reduced penumbra and motion improve recorded detail."
+            },
+            {
+                front: "What is the effect of increasing mA on an x-ray machine?",
+                back: "The filament heats up, creating more electrons and x-rays. Higher mA raises beam quantity (mAs), increasing image density."
+            },
+            {
+                front: "What is the effect of increasing kVp on beam quality?",
+                back: "The mean energy of the x-ray beam increases, making the x-rays more penetrating. Raising kVp hardens the beam and improves penetration."
+            },
+            {
+                front: "What is the effect of decreasing exposure time (with mA unchanged)?",
+                back: "The exposure time decreases, reducing the number of x-rays produced. Shorter duration lowers total mAs and photon output."
+            },
+            {
+                front: "If you adjust non-exposure settings (e.g., room lighting), what is the effect on x-ray production?",
+                back: "There is no effect on x-ray production. Photon output changes only with exposure factors like kVp, mA, and time."
+            },
+            {
+                front: "What term describes light or white regions on a dental radiograph?",
+                back: "Radiopaque. Dense structures attenuate more x-rays, appearing lighter on the image."
+            },
+            {
+                front: "What term describes dark regions on a dental radiograph?",
+                back: "Radiolucent. Less dense areas transmit more x-rays, appearing darker."
+            },
+            {
+                front: "In radiographic terminology, what describes greater overall blackness of an image?",
+                back: "High-density. Higher optical density corresponds to darker appearance."
+            },
+            {
+                front: "In visible-light imaging, what term refers to areas that allow light to pass easily?",
+                back: "Transparent areas. Transparency indicates minimal attenuation of visible light."
+            },
+            {
+                front: "What term defines the difference in blackness between adjacent areas on a dental image?",
+                back: "Contrast. Contrast reflects the range of gray levels that distinguish structures."
+            },
+            {
+                front: "Which patient factor influences contrast by altering x-ray attenuation?",
+                back: "Subject thickness. Thicker or denser regions absorb more, affecting subject contrast."
+            },
+            {
+                front: "What term refers to the overall usefulness of an image for diagnosis?",
+                back: "Diagnostic quality. It encompasses contrast, sharpness, coverage, and absence of errors."
+            },
+            {
+                front: "What term describes the overall degree of blackness on a radiograph?",
+                back: "Density. Greater photon exposure increases optical density (darker image)."
+            },
+            {
+                front: "Which exposure factor directly controls radiographic contrast?",
+                back: "Kilovoltage Peak (kVp). Higher kVp lowers contrast (more grays); lower kVp increases contrast (more black-and-white)."
+            },
+            {
+                front: "Which exposure factor primarily controls beam quantity and image density?",
+                back: "Milliamperage (mA). mA sets electron current and photon output per unit time."
+            },
+            {
+                front: "Which exposure factor controls duration and total photon output?",
+                back: "Exposure time. Longer time increases mAs and image density."
+            },
+            {
+                front: "Which patient factor alters contrast though it is not an exposure setting?",
+                back: "Subject thickness. Varying thickness changes attenuation and thus subject contrast."
+            }
+        ];
+        
+        let currentIndex = 0;
+        let isShuffled = false;
+        let shuffledIndices = [];
+        
+        // Initialize
+        function init() {
+            // Load saved state
+            const savedIndex = localStorage.getItem('flashcard-index');
+            const savedShuffle = localStorage.getItem('flashcard-shuffle');
+            const savedIndices = localStorage.getItem('flashcard-indices');
+            
+            if (savedIndex !== null) {
+                currentIndex = parseInt(savedIndex);
+            }
+            
+            if (savedShuffle === 'true') {
+                isShuffled = true;
+                if (savedIndices) {
+                    shuffledIndices = JSON.parse(savedIndices);
+                } else {
+                    createShuffledIndices();
+                }
+            } else {
+                createOrderedIndices();
+            }
+            
+            displayCard();
+        }
+        
+        function createOrderedIndices() {
+            shuffledIndices = Array.from({length: flashcards.length}, (_, i) => i);
+        }
+        
+        function createShuffledIndices() {
+            shuffledIndices = Array.from({length: flashcards.length}, (_, i) => i);
+            for (let i = shuffledIndices.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledIndices[i], shuffledIndices[j]] = [shuffledIndices[j], shuffledIndices[i]];
+            }
+        }
+        
+        function displayCard() {
+            const actualIndex = shuffledIndices[currentIndex];
+            const card = flashcards[actualIndex];
+            
+            document.getElementById('question').textContent = card.front;
+            document.getElementById('answer-text').textContent = card.back;
+            document.getElementById('progress').textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
+            
+            // Hide answer when displaying new card
+            document.getElementById('answer').classList.remove('show');
+            document.getElementById('toggleAnswer').textContent = 'Show Answer';
+            document.getElementById('toggleAnswer').classList.remove('hide');
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === flashcards.length - 1;
+            
+            // Save state
+            localStorage.setItem('flashcard-index', currentIndex);
+            localStorage.setItem('flashcard-shuffle', isShuffled);
+            localStorage.setItem('flashcard-indices', JSON.stringify(shuffledIndices));
+        }
+        
+        function toggleAnswer() {
+            const answer = document.getElementById('answer');
+            const button = document.getElementById('toggleAnswer');
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                button.textContent = 'Show Answer';
+                button.classList.remove('hide');
+            } else {
+                answer.classList.add('show');
+                button.textContent = 'Hide Answer';
+                button.classList.add('hide');
+            }
+        }
+        
+        function nextCard() {
+            if (currentIndex < flashcards.length - 1) {
+                currentIndex++;
+                displayCard();
+            }
+        }
+        
+        function previousCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayCard();
+            }
+        }
+        
+        function shuffleCards() {
+            isShuffled = !isShuffled;
+            currentIndex = 0;
+            
+            if (isShuffled) {
+                createShuffledIndices();
+            } else {
+                createOrderedIndices();
+            }
+            
+            displayCard();
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextCard();
+            if (e.key === 'ArrowLeft') previousCard();
+            if (e.key === ' ') {
+                e.preventDefault();
+                toggleAnswer();
+            }
+        });
+        
+        // Initialize on load
+        init();
+    </script>
+</body>
+</html>
