@@ -2,431 +2,343 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Andrew Margarit | Dental Hygienist & Educational Designer</title>
+    <title>Andrew Margarit | Dental Educator & Instructional Designer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link to the CSS file -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
 
-    <!-- Navigation Menu -->
+    <!-- Navigation -->
     <nav>
-        <div class="container">
-            <div class="logo">
-                <a href="#home">Andrew Margarit, BSDH, CDA</a>
-            </div>
+        <div class="nav-container">
+            <div class="logo">AM</div>
             <div class="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">About Me</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#credentials">Credentials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Sections -->
-
-  <!-- Home/About Me Section -->
-<section id="home">
-    <div class="container">
-        <div class="about-me-section">
-            <div class="about-me-content">
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
                 <h1>Andrew Margarit</h1>
-                <h2>Instructional Designer & Educator <br/> Licensed Dental Hygienist & Assistant </h2>
-                <p>Passionate about improving dental health and education through innovative instructional design. With a unique blend of clinical experience and educational expertise, I strive to enhance learning experiences and outcomes.</p>
-                <a href="#contact" class="btn">Get in Touch</a>
+                <h2>BSDH, CDA</h2>
+                <p class="hero-subtitle">Instructional Designer • Dental Educator • Clinical Hygienist</p>
+                <p class="hero-description">Bridging clinical expertise with innovative educational technology to transform dental education through gamification and interactive learning experiences.</p>
+                <div class="hero-cta">
+                    <a href="#work" class="btn btn-primary">View Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
             </div>
-            <div class="about-me-image">
+            <div class="hero-image">
                 <img src="Andrew.jpeg" alt="Andrew Margarit">
             </div>
         </div>
+    </section>
 
-        <!-- What Can I Do For You Section -->
-        <div class="services-section">
-            <h2>What Can I Do For You?</h2>
-            <div class="services">
-			    <div class="service-item">
+    <!-- Expertise -->
+    <section id="expertise">
+        <div class="container">
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Gamified Learning</h3>
+                    <p>Creating engaging, game-based educational tools that make dental education interactive and memorable</p>
+                </div>
+                <div class="expertise-card">
                     <i class="fas fa-laptop-code"></i>
-                    <h3>Instructional Design</h3>
-                    <p>Designing engaging and effective instructional materials for educational institutions and organizations.</p>
+                    <h3>EdTech Development</h3>
+                    <p>Building digital learning solutions with HTML, CSS, JavaScript, and Swift for web and iOS platforms</p>
                 </div>
-
-                <div class="service-item">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Educational Training</h3>
-                    <p>Offering expert workshops on Dental Radiation Health and Safety, Infection Control & OSHA, and Dental Assisting to enhance skills and promote best practices.</p>
-                </div>
-                <div class="service-item">
+                <div class="expertise-card">
                     <i class="fas fa-tooth"></i>
-						<h3>Dental Hygiene & Assisting Education</h3>
-						<p>Specializing in educating future dental professionals through expert instruction in dental hygiene and assisting, with a focus on clinical skills, patient care, and preventative practices.</p>
-
+                    <h3>Clinical Expertise</h3>
+                    <p>Licensed dental hygienist and assistant with extensive clinical experience and radiation safety certification</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Portfolio</h2>
-                <div class="portfolio-grid">
-                    <!-- Portfolio Item 1 -->
-                    <a href="#" class="portfolio-card">
-                        <div class="portfolio-image">
-                            <div class="gif-placeholder">GIF Placeholder</div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Tooth Sleuth</h3>
-                            <p>Tooth Sleuth helps students identify adult and primary teeth through practice, timed, and survival modes.</p>
-                        </div>
-                    </a>
-                    <!-- Portfolio Item 2 -->
-                    <a href="#" class="portfolio-card">
-                        <div class="portfolio-image">
-                            <div class="gif-placeholder">GIF Placeholder</div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Radiograph Roundup</h3>
-                            <p>Radiograph Roundup helps students practice radiograph mounting with digital images and instant feedback.</p>
-                        </div>
-                    </a>
-                    <!-- Portfolio Item 3 -->
-                    <a href="#" class="portfolio-card">
-                        <div class="portfolio-image">
-                            <div class="gif-placeholder">GIF Placeholder</div>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Radiation Health and Safety in Dentistry</h3>
-                            <p>This course covers essential principles of radiation safety, focusing on best practices for minimizing exposure, proper equipment handling, and regulatory compliance in dental settings. Enhance your knowledge to ensure a safer working environment.</p>
-                        </div>
-                    </a>
-			   
-
-			   </div>
-			   <br /><br /><br /><br />
-                          <div class="qualification-subsection">
-    <h3><i class="fas fa-book-open"></i> Teaching Portfolio</h3>
-    <table class="teaching-portfolio-table">
-        <thead>
-            <tr>
-                <th>Course</th>
-                <th>Institution &amp; Dates</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Dental Assisting Courses -->
-            <tr>
-                <td>Didactic and Clinical Dental Assisting</td>
-                <td>DACC - NMSU | Aug '23 – Current</td>
-            </tr>
-            <tr>
-                <td>Dental Office Management (Dental Assisting)</td>
-                <td>DACC - NMSU | Aug '18 – Aug '24</td>
-            </tr>
-
-            <!-- Dental Hygiene Courses -->
-            <tr>
-                <td>Clinical Dental Hygiene (Including Dental Radiology and Dental Materials)</td>
-                <td>DACC - NMSU | Aug '16 – Current</td>
-            </tr>
-
-            <!-- Shared Courses (Dental Hygiene and Assisting) -->
-            <tr>
-                <td>Didactic Dental Radiography (Dental Hygiene and Assisting)</td>
-                <td>DACC - NMSU | Aug '22 – Current</td>
-            </tr>
-            <tr>
-                <td>Didactic Dental Materials (Dental Hygiene and Assisting)</td>
-                <td>DACC - NMSU | Jan '22 – Current</td>
-            </tr>
-	    <tr>
-                <td>Didactic General and Oral Pathology (Dental Hygiene)</td>
-                <td>DACC - NMSU | Jan '24 – Current</td>
-            </tr>
-        </tbody>
-    </table>
-
-			   
-			   
+                <div class="expertise-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Dental Education</h3>
+                    <p>Full-time instructor teaching Dental Assisting and Hygiene courses at DACC-NMSU</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Qualifications Section -->
-    <section id="qualifications">
+    <!-- Portfolio/Work Section -->
+    <section id="work">
         <div class="container">
-            <h2 class="section-title">Qualifications</h2>
+            <h2 class="section-title">Featured Work</h2>
+            <div class="work-grid">
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="placeholder">Tooth Sleuth</div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Tooth Sleuth</h3>
+                        <p class="work-type">iOS App • Educational Game</p>
+                        <p>Interactive tooth identification game with adult and pediatric modes. Features practice, timed, and survival modes to help students master dental anatomy through gamification.</p>
+                        <div class="work-tags">
+                            <span>Swift</span>
+                            <span>iOS</span>
+                            <span>Gamification</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Work Experience Subsection -->
-<div class="qualification-subsection">
-    <h3><i class="fas fa-briefcase"></i> Work Experience</h3>
-    <ul class="work-experience-list">
-        <li>
-            <h4>Dental Assisting Coordinator</h4>
-            <p>DACC - NMSU | May '23 – Current</p>
-            <p>Oversee and coordinate clinical practicums, student licensing, radiation safety exams, and compliance for Dental Assisting students.
-			Manage affiliation agreements, and clinical requirements. 
-			Teach didactic classes and clinical labs for both Dental Hygiene and Assisting. Collaborate on orientation, calibration workshops, and summer clinical courses. 
-			Serve as lead faculty in Dental Hygiene clinical sessions, and Serve as the lead advisor for the Dental Assisting Student Association (DASA), guiding and supporting student leadership and outreach efforts.</p>
-        </li>
-      
- 
- <li>
-    <h4>Adjunct Dental Hygiene Clinical Instructor</h4>
-    <p>DACC - NMSU | Aug '16 – May '23</p>
-    <p>Instructed and supervised dental hygiene students in clinical settings, focusing on patient care, clinical skills, and adherence to safety protocols. Taught didactic courses in Dental Radiology and Dental Materials, delivering lectures and assessments on radiation techniques and safety measures and performing adjunct Dental Hygiene procedures.</p>
-</li>
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="placeholder">Radiograph Roundup</div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Radiograph Roundup</h3>
+                        <p class="work-type">Web Application</p>
+                        <p>Digital radiograph mounting practice tool with instant feedback. Helps students develop critical skills in radiographic interpretation and proper mounting techniques.</p>
+                        <div class="work-tags">
+                            <span>HTML/CSS/JS</span>
+                            <span>Canvas LMS</span>
+                            <span>Assessment</span>
+                        </div>
+                    </div>
+                </div>
 
- <li>
-    <h4>Clinical Dental Hygienist</h4>
-    <p>Northrise Dental and Dr. James Margarit DDS | Aug '15 – May '23</p>
-    <p>Provided comprehensive preventive dental care, including cleanings, periodontal therapy, and patient education on oral health. Collaborated with the dentist on treatment planning and assisted in maintaining high standards of patient care and hygiene protocols.</p>
-</li>
-<li>
-    <h4>Clinical Dental Assistant</h4>
-    <p>Dr. James Margarit DDS | Summers '02 - '07; 2011 – 2013</p>
-    <p>Assisted the dentist during procedures, prepared treatment rooms, and sterilized instruments. Managed front reception duties, including scheduling, patient check-ins, and administrative tasks, ensuring smooth office operations.</p>
-</li>
-
-		<li>
-            <h4>Corrections Officer</h4>
-            <p>Doña Ana County Detention Center | 2009 – 2011</p>
-            <p>Monitored and controlled the movement of juvenile inmates from Master Control, ensuring facility security and inmate safety. Coordinated communication between housing units, supervised inmate activities, and enforced institutional policies and procedures to maintain order.</p>
-        </li>
-    </ul>
-</div>
-
-
-            <!-- Education Subsection -->
-            <div class="qualification-subsection">
-                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                <ul class="education-list">
-<li>
-    <h4>Master of Arts in Education: Educational Learning Technologies</h4>
-    <p>New Mexico State University, Expected Graduation: 2025</p>
-</li>
-<li>
-    <h4>Bachelor of Science in Dental Hygiene</h4>
-    <p>University of New Mexico, 2020</p>
-</li>
-<li>
-    <h4>Associate of Applied Science in Dental Hygiene</h4>
-    <p>Doña Ana Community College - New Mexico State University, 2015</p>
-</li>
-
-
-  <!--                  <li>
-                        <h4>Future PhD Student in [Field]</h4>
-                        <p>Planned Start: Year</p>
-                    </li> -->
-                </ul>
-            </div>
-
-  
-
-            <!-- Licenses Subsection -->
-            <div class="qualification-subsection">
-                <h3><i class="fas fa-certificate"></i> Licenses</h3>
-                <div class="licenses-grid">
-                   
-<div class="license-card">
-    <i class="fas fa-tooth"></i>
-    <h4>Registered Dental Hygienist (RDH) License</h4>
-    <p>New Mexico Board of Dental Health Care | 2015 - Current</p>
-</div>
-
-<div class="license-card">
-    <i class="fas fa-syringe"></i>
-    <h4>Local Anesthesia Certification</h4>
-    <p>New Mexico Board of Dental Health Care | 2015 - Current</p>
-</div>
-
-<div class="license-card">
-    <i class="fas fa-id-badge"></i>
-    <h4>Certified Dental Assistant (CDA) Certification</h4>
-    <p>New Mexico Board of Dental Health Care | 2023 - Current</p>
-</div>
-
-<div class="license-card">
-    <i class="fas fa-crosshairs"></i>
-    <h4>Standard Proficiency in Laser Dentistry Certification</h4>
-    <p>Academy of Laser Dentistry | 2024 - Current</p>
-</div>
-
-<div class="license-card">
-    <i class="fas fa-heartbeat"></i>
-    <h4>BLS Instructor Certification</h4>
-    <p>American Heart Association | 2024 - Current</p>
-</div>
-
-					
+                <div class="work-card">
+                    <div class="work-image">
+                        <div class="placeholder">Radiation Safety Course</div>
+                    </div>
+                    <div class="work-content">
+                        <h3>Radiation Health & Safety</h3>
+                        <p class="work-type">Online Course</p>
+                        <p>Comprehensive course covering radiation safety principles, equipment handling, and regulatory compliance for dental professionals. QM-certified design.</p>
+                        <div class="work-tags">
+                            <span>Canvas LMS</span>
+                            <span>QM Standards</span>
+                            <span>Certification</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-
-
-
-
-            <!-- Digital Badges Subsection -->
-            <div class="qualification-subsection">
-                <h3><i class="fas fa-award"></i> Digital Badges</h3>
-                <div class="badges-grid">
-                  
-			<div class="badge-card">
-			<img src="AppleTeacher_black.svg" alt="Apple Teacher Badge" style="transform: scale(2);">
-			<br/> Feb 2024
-			</div>
-
-                    <div class="badge-card">
-                        <blockquote class="badgr-badge" style="font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;"><a href="https://api.badgr.io/public/assertions/TqxZnuyXRq-6GbGtww_Cpg"><img width="120px" height="120px" src="https://api.badgr.io/public/assertions/TqxZnuyXRq-6GbGtww_Cpg/image"></a><p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #05012c;">Certified Online Instructor</p><p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded: </strong>Aug 6, 2024</p><p class="badgr-badge-recipient" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded To: </strong><span style="display: block;"> Andrew Margarit</span></p><p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2FTqxZnuyXRq-6GbGtww_Cpg" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: black;">VERIFY</a></p><script async="async" src="https://badgr.com/assets/widgets.bundle.js"></script></blockquote>
-                    </div>
-                    <div class="badge-card">
-						<blockquote class="badgr-badge" style="font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;"><a href="https://api.badgr.io/public/assertions/VcI_vHXkQ62xcVSFGqGZsw?identity__email=drewmar%40nmsu.edu"><img width="120px" height="120px" src="https://api.badgr.io/public/assertions/VcI_vHXkQ62xcVSFGqGZsw/image"></a><p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #05012c;">Social Media Management in Education</p><p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded: </strong>Jul 8, 2024</p><p class="badgr-badge-recipient" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded To: </strong><span style="display: block;"> Andrew Margarit</span></p><p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2FVcI_vHXkQ62xcVSFGqGZsw%3Fidentity__email%3Ddrewmar%2540nmsu.edu&amp;identity__email=drewmar%40nmsu.edu" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: black;">VERIFY</a></p><script async="async" src="https://badgr.com/assets/widgets.bundle.js"></script></blockquote>
-                    </div>
-                    <div class="badge-card">
-						<blockquote class="badgr-badge" style="font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;"><a href="https://api.badgr.io/public/assertions/uXVMXUA8SvONphZ651pmAQ?identity__email=amargarit%40dacc.nmsu.edu"><img width="120px" height="120px" src="https://api.badgr.io/public/assertions/uXVMXUA8SvONphZ651pmAQ/image"></a><p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #05012c;">Empowering Students to Use AI Responsibly</p><p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded: </strong>Mar 15, 2024</p><p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2FuXVMXUA8SvONphZ651pmAQ%3Fidentity__email%3Damargarit%2540dacc.nmsu.edu&amp;identity__email=amargarit%40dacc.nmsu.edu" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: black;">VERIFY</a></p><script async="async" src="https://badgr.com/assets/widgets.bundle.js"></script></blockquote>
-                    </div>
-                    <div class="badge-card">
-						<blockquote class="badgr-badge" style="font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;"><a href="https://api.badgr.io/public/assertions/e4e-2tEyR4yw3SIh0vBJlA?identity__email=amargarit%40dacc.nmsu.edu"><img width="120px" height="120px" src="https://api.badgr.io/public/assertions/e4e-2tEyR4yw3SIh0vBJlA/image"></a><p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #05012c;">Teaching with AI-Centered and AI-Resistant Learning Experiences</p><p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded: </strong>Mar 15, 2024</p><p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2Fe4e-2tEyR4yw3SIh0vBJlA%3Fidentity__email%3Damargarit%2540dacc.nmsu.edu&amp;identity__email=amargarit%40dacc.nmsu.edu" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: black;">VERIFY</a></p><script async="async" src="https://badgr.com/assets/widgets.bundle.js"></script></blockquote>
-                    </div>
-                    <div class="badge-card">
-						<blockquote class="badgr-badge" style="font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;"><a href="https://api.badgr.io/public/assertions/x2bbt3uKSfa83GBOFyvIjw?identity__email=amargarit%40dacc.nmsu.edu"><img width="120px" height="120px" src="https://api.badgr.io/public/assertions/x2bbt3uKSfa83GBOFyvIjw/image"></a><p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #05012c;">Leveraging AI to Develop Course Resources</p><p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded: </strong>Mar 15, 2024</p><p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2Fx2bbt3uKSfa83GBOFyvIjw%3Fidentity__email%3Damargarit%2540dacc.nmsu.edu&amp;identity__email=amargarit%40dacc.nmsu.edu" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: black;">VERIFY</a></p><script async="async" src="https://badgr.com/assets/widgets.bundle.js"></script></blockquote>
-                    </div>
-                    <div class="badge-card">
-						<blockquote class="badgr-badge" style="font-family: Helvetica, Roboto, &quot;Segoe UI&quot;, Calibri, sans-serif;"><a href="https://api.badgr.io/public/assertions/DdQE5z1uTc6t5xYUT4tdcw?identity__email=amargarit%40dacc.nmsu.edu"><img width="120px" height="120px" src="https://api.badgr.io/public/assertions/DdQE5z1uTc6t5xYUT4tdcw/image"></a><p class="badgr-badge-name" style="hyphens: auto; overflow-wrap: break-word; word-wrap: break-word; margin: 0; font-size: 16px; font-weight: 600; font-style: normal; font-stretch: normal; line-height: 1.25; letter-spacing: normal; text-align: left; color: #05012c;">Writing Effective AI Prompts</p><p class="badgr-badge-date" style="margin: 0; font-size: 12px; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #555555;"><strong style="font-size: 12px; font-weight: bold; font-style: normal; font-stretch: normal; line-height: 1.67; letter-spacing: normal; text-align: left; color: #000;">Awarded: </strong>Mar 6, 2024</p><p style="margin: 16px 0; padding: 0;"><a class="badgr-badge-verify" target="_blank" href="https://badgecheck.io?url=https%3A%2F%2Fapi.badgr.io%2Fpublic%2Fassertions%2FDdQE5z1uTc6t5xYUT4tdcw%3Fidentity__email%3Damargarit%2540dacc.nmsu.edu&amp;identity__email=amargarit%40dacc.nmsu.edu" style="box-sizing: content-box; display: flex; align-items: center; justify-content: center; margin: 0; font-size:14px; font-weight: bold; width: 48px; height: 16px; border-radius: 4px; border: solid 1px black; text-decoration: none; padding: 6px 16px; margin: 16px 0; color: black;">VERIFY</a></p><script async="async" src="https://badgr.com/assets/widgets.bundle.js"></script></blockquote>
-                    </div>		
-					
-                    
-                </div>
-            </div>
-
-  <!-- Leadership & Service Subsection -->
-<div class="qualification-subsection">
-    <h3><i class="fas fa-user-tie"></i> Leadership & Service</h3>
-    <ul class="leadership-list">
-<li>
-    <h4>Vice President, New Mexico Dental Hygienists' Association (NMDHA)</h4>
-    <p>Term: June 2023 – Current</p>
-    <p>Organized statewide professional development events, advocated for the advancement of the profession, and facilitated networking opportunities among dental professionals.</p>
-</li>
-
-<li>
-    <h4>Committee Member, Achieving the Dream (ATD) Initiative</h4>
-    <p>Term: May 2024 – Current</p>
-    <p>Supported the development of evidence-based strategies to close achievement gaps and enhance student success at the community college level. Facilitated professional development initiatives aimed at improving equity, inclusion, and institutional performance for student retention and completion.</p>
-</li>
-
-
-
-<li>
-    <h4>SkillsUSA Advisor</h4>
-    <p>Term: May 2024 – Current</p>
-    <p>Guided and mentored students in leadership development, coordinated participation in state and national competitions, and promoted career readiness within various areas of specialty.</p>
-</li>
-
-
-<li>
-    <h4>Committee Member, Instructional Technology Advisory Committee (ITAC)</h4>
-    <p>Term: May 2024 – Current</p>
-    <p>Collaborated on technology integration strategies, provided input on instructional tools, and supported the enhancement of digital learning resources.</p>
-</li>
-
-<li>
-    <h4>Canvas Mentor and Instructional Design Support for Health Sciences</h4>
-    <p>Term: September 2024 – Current</p>
-    <p>Mentored faculty in designing and implementing effective Canvas pages, focusing on enhancing course structure, engagement, and digital learning experiences.</p>
-</li>
-
-
-
-        
-    </ul>
-</div>
-
-
-            <div class="qualification-subsection">
-                <h3><i class="fas fa-certificate"></i> Additional Qualifications</h3>
-                <div class="licenses-grid">
-                   
-<div class="license-card">
-    <i class="fas fa-star"></i>
-    <h4>Award: Outstanding Part-Time Faculty - Health Sciences</h4>
-    <p>Feb 2024</p>
-</div>
-<div class="license-card">
-    <i class="fas fa-star"></i>
-    <h4>Award: Academic Innovation - DACC</h4>
-    <p>Feb 2025</p>
-</div>
-
-
-					
-                </div>
-            </div>
-
-<!--
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
             
-            <div class="qualification-subsection">
-                <h3><i class="fas fa-chalkboard-teacher"></i> Professional Development</h3>
-                <ul class="trainings-list">
-                    <li>
-                        <h4>Training Name 1</h4>
-                        <p>Institution, Date Completed (FILL IN LATER)</p>
-                    </li>
-                    
-                </ul>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Dental Assisting Coordinator</h3>
+                        <p class="timeline-org">DACC - NMSU</p>
+                        <p class="timeline-date">May 2023 – Present</p>
+                        <p>Oversee clinical practicums, student licensing, and radiation safety exams. Teach didactic and clinical courses for Dental Hygiene and Assisting. Lead faculty in clinical sessions and advisor for Dental Assisting Student Association (DASA).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Adjunct Dental Hygiene Clinical Instructor</h3>
+                        <p class="timeline-org">DACC - NMSU</p>
+                        <p class="timeline-date">August 2016 – May 2023</p>
+                        <p>Instructed dental hygiene students in clinical settings. Taught Dental Radiology and Dental Materials courses with focus on patient care and safety protocols.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Clinical Dental Hygienist</h3>
+                        <p class="timeline-org">Northrise Dental & Dr. James Margarit DDS</p>
+                        <p class="timeline-date">August 2015 – May 2023</p>
+                        <p>Provided comprehensive preventive dental care including cleanings, periodontal therapy, and patient education. Collaborated on treatment planning.</p>
+                    </div>
+                </div>
             </div>
-			-->
+
+            <!-- Teaching Portfolio -->
+            <div class="teaching-section">
+                <h3>Teaching Portfolio</h3>
+                <div class="courses-grid">
+                    <div class="course-item">
+                        <h4>Clinical Dental Hygiene</h4>
+                        <p>Aug 2016 – Present</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Didactic Dental Radiography</h4>
+                        <p>Aug 2022 – Present</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Didactic Dental Materials</h4>
+                        <p>Jan 2022 – Present</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Didactic & Clinical Dental Assisting</h4>
+                        <p>Aug 2023 – Present</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>General & Oral Pathology</h4>
+                        <p>Jan 2024 – Present</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Dental Office Management</h4>
+                        <p>Aug 2018 – Aug 2024</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-	
-<!-- Contact Section -->
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-        <p class="contact-description">Please fill out the form below to get in touch.</p>
-        <form action="#" method="post" class="contact-form">
-            <div class="form-group">
-                <input type="text" name="name" required>
-                <label>Name</label>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" required>
-                <label>Email</label>
-            </div>
-            <div class="form-group">
-                <textarea name="message" rows="5" required></textarea>
-                <label>Message</label>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </div>
-</section>
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Andrew Margarit. All rights reserved.</p>
-    </div>
-</footer>
 
+    <!-- Credentials Section -->
+    <section id="credentials">
+        <div class="container">
+            <h2 class="section-title">Credentials</h2>
+            
+            <!-- Education -->
+            <div class="credentials-section">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h4>Master of Arts in Education</h4>
+                        <p class="degree-focus">Educational Learning Technologies</p>
+                        <p class="institution">New Mexico State University</p>
+                        <p class="year">Expected 2025</p>
+                    </div>
+                    <div class="education-card">
+                        <h4>Bachelor of Science</h4>
+                        <p class="degree-focus">Dental Hygiene</p>
+                        <p class="institution">University of New Mexico</p>
+                        <p class="year">2020</p>
+                    </div>
+                    <div class="education-card">
+                        <h4>Associate of Applied Science</h4>
+                        <p class="degree-focus">Dental Hygiene</p>
+                        <p class="institution">DACC - NMSU</p>
+                        <p class="year">2015</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Link to the JavaScript file -->
+            <!-- Licenses -->
+            <div class="credentials-section">
+                <h3><i class="fas fa-certificate"></i> Licenses & Certifications</h3>
+                <div class="licenses-grid">
+                    <div class="license-item">
+                        <i class="fas fa-tooth"></i>
+                        <h4>Registered Dental Hygienist (RDH)</h4>
+                        <p>New Mexico Board of Dental Health Care</p>
+                    </div>
+                    <div class="license-item">
+                        <i class="fas fa-id-badge"></i>
+                        <h4>Certified Dental Assistant (CDA)</h4>
+                        <p>New Mexico Board of Dental Health Care</p>
+                    </div>
+                    <div class="license-item">
+                        <i class="fas fa-syringe"></i>
+                        <h4>Local Anesthesia Certification</h4>
+                        <p>New Mexico Board of Dental Health Care</p>
+                    </div>
+                    <div class="license-item">
+                        <i class="fas fa-crosshairs"></i>
+                        <h4>Standard Proficiency in Laser Dentistry</h4>
+                        <p>Academy of Laser Dentistry</p>
+                    </div>
+                    <div class="license-item">
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>BLS Instructor Certification</h4>
+                        <p>American Heart Association</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Badges -->
+            <div class="credentials-section">
+                <h3><i class="fas fa-award"></i> Digital Badges & Recognition</h3>
+                <div class="badges-section">
+                    <div class="awards">
+                        <div class="award-item">
+                            <i class="fas fa-star"></i>
+                            <h4>Academic Innovation Award</h4>
+                            <p>DACC, 2025</p>
+                        </div>
+                        <div class="award-item">
+                            <i class="fas fa-star"></i>
+                            <h4>Outstanding Part-Time Faculty</h4>
+                            <p>Health Sciences, 2024</p>
+                        </div>
+                    </div>
+                    <div class="badges-compact">
+                        <div class="badge-mini">
+                            <img src="AppleTeacher_black.svg" alt="Apple Teacher">
+                            <p>Apple Teacher</p>
+                        </div>
+                        <div class="badge-mini">
+                            <i class="fas fa-certificate"></i>
+                            <p>Certified Online Instructor</p>
+                        </div>
+                        <div class="badge-mini">
+                            <i class="fas fa-certificate"></i>
+                            <p>AI in Education</p>
+                        </div>
+                        <div class="badge-mini">
+                            <i class="fas fa-certificate"></i>
+                            <p>Social Media in Education</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's Connect</h2>
+                    <p>Interested in collaboration, consulting, or learning more about educational technology in dental education?</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" required>
+                            <label>Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" required>
+                            <label>Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" required></textarea>
+                        <label>Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Andrew Margarit, BSDH, CDA. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
