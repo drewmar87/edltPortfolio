@@ -1,6 +1,7 @@
 // Toggle Menu for Mobile View
 const navLinks = document.querySelector('.nav-links');
 const menuToggle = document.querySelector('.menu-toggle');
+
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     menuToggle.classList.toggle('active');
@@ -13,6 +14,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
+        
         // Close the menu on mobile after clicking
         if (window.innerWidth < 768) {
             navLinks.classList.remove('active');
@@ -39,11 +41,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Toggle additional badges accordion
+// Toggle badges accordion
 function toggleBadges() {
     const content = document.getElementById('additionalBadges');
-    const toggle = document.querySelector('.accordion-toggle');
+    const button = document.querySelector('.accordion-btn');
     
     content.classList.toggle('active');
-    toggle.classList.toggle('active');
+    button.classList.toggle('active');
 }
