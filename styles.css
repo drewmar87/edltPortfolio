@@ -694,7 +694,7 @@ nav {
     color: var(--text-light);
 }
 
-/* Accordion */
+/* Accordion - REPLACE THE EXISTING ACCORDION SECTION */
 .badges-accordion {
     margin-top: 40px;
 }
@@ -722,7 +722,7 @@ nav {
 }
 
 .accordion-btn i {
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
     color: var(--primary);
 }
 
@@ -733,12 +733,17 @@ nav {
 .accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .accordion-content.active {
     max-height: 3000px;
+    opacity: 1;
+    transform: translateY(0);
     margin-top: 24px;
+    transition: max-height 0.5s ease, opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }
 
 /* Contact Section */
